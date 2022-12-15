@@ -1,0 +1,159 @@
+$lightPink: #F2398A;
+$darkPink: #E74242;
+$yellow: #FFD543;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+.container {
+    width: 100%;
+    height: max-content;
+    header {
+        .nav {
+            position: absolute;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-inline: 50px;
+            padding-block: 20px;
+            width: 100%;
+            height: 100px;
+            .logo {
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            ul {
+                display: flex;
+                gap: 20px;
+                width: max-content;
+                height: max-content;
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            ul.home {
+                a:nth-child(1) {
+                    color: $yellow;
+                    border-bottom: 2px solid $yellow;
+                }
+            }
+
+            ul.gift {
+                a:nth-child(2) {
+                    color: $yellow;
+                    border-bottom: 2px solid $yellow;
+                }
+            }
+        }
+    }
+
+    section {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .hero{
+        background-image: url(./sections/images/santaImage.svg),url(./sections/images/chrismasTree.svg), linear-gradient(to top right, $darkPink, $lightPink);
+        background-position: 10% 5%,80% 95%;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-inline: 50px;
+        .hero-content{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 50px;
+            padding-inline: 50px;
+            .hero-content-text{
+                text-align: center;
+                font-size: 24px;
+            }
+            .hero-content-button{
+                padding: 10px 20px;
+                background-color: $yellow;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                a{
+                    color: #6AC412;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    section.gift{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to top right, $darkPink, $lightPink);
+        .gift-container{
+            padding-top: 100px;
+            display: grid;
+            place-items: center;
+            justify-content: center;
+            grid-template-columns: repeat(2,1fr);
+            width: 100%;
+            height: 100vh;
+            img{
+                width: 150px;
+                cursor: pointer;
+                opacity: 1;
+                scale: 1;
+                transition: all 500ms ease-in-out;
+            }
+            img.fade-out{
+                opacity: 0;
+                scale: 0;
+            }
+        }
+        button{
+            margin-top: 50px;
+        }
+        .selected{
+            img{
+                opacity: 1;
+                scale: 1;
+                cursor: pointer;
+                transition: all 500ms ease-in-out;
+            }
+            img.fade-out{
+                opacity: 0;
+                scale: 0;
+            }
+        }
+    }
+}
+@media screen and (min-width: 800px) {
+    .container{
+        .hero{
+            background-image: url(./sections/images/chismasTreeDesktop.svg),url(./sections/images/santaImageDesktop.svg),linear-gradient(to top right, $darkPink, $lightPink);
+            background-size: 25%, 25%, 100%;
+            background-position: 20% 90%, 80% 90%;
+            .hero-content{
+                .hero-content-text{
+                    font-size: 50px;
+                    padding-inline: 300px;
+                }
+            }
+        }
+        section.gift{
+            .gift-container{
+                grid-template-columns: repeat(4,1fr);
+            }
+        }
+    }
+}
